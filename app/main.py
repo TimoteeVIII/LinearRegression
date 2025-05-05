@@ -63,7 +63,7 @@ def predict(features: FeatureVector):
         X_pred = (X_pred - train_mean) / train_std
         y_hat: float = np.dot(X_pred, w) + b
     except Exception as e:
-        raise HTTPException(status_code=400, detail=e)
+        raise HTTPException(status_code=400, detail=str(e))
     return {"prediction": y_hat}
 
 
